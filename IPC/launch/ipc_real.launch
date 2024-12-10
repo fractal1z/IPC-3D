@@ -11,13 +11,13 @@
         
         <!-- subscribe topic -->
         <remap from="local_pc"     to="/cloud_registered"/>
-        <remap from="odom"         to="/lidar_slam/imu_propagate"/>
-        <remap from="imu"          to="/mavros/imu/data"/>
+        <remap from="odom"         to="/Odom"/>
+        <remap from="imu"          to="livox/imu"/>
         <remap from="goal"         to="/goal"/>
         <remap from="rc_in"        to="/mavros/rc/in"/>
 
         <rosparam command="load" file="$(find ipc)/config/param_real.yaml"/>
 
     </node>
-
+    <node name="ipc" pkg="rviz" type="rviz" args="-d $(find ipc)/config/env.rviz"/>
 </launch>

@@ -1,0 +1,48 @@
+{
+    "configurations": [
+        {
+            "browse": {
+                "databaseFilename": "${default}",
+                "limitSymbolsToIncludedHeaders": false
+            },
+            "includePath": [
+                "/home/fractal/IPC_ws/devel/include/**",
+                "/home/fractal/livox_ros_driver2/devel/include/**",
+                "/home/fractal/catkin_ws/devel/include/**",
+                "/opt/ros/noetic/include/**",
+                "/home/fractal/IPC_ws/src/IPC/mars_uav_sim/uav_simulator/aros_util/include/**",
+                "/home/fractal/catkin_ws/src/ego-planner-swarm/src/planner/bspline_opt/include/**",
+                "/home/fractal/IPC_ws/src/IPC/mars_uav_sim/uav_simulator/depth_gene/include/**",
+                "/home/fractal/catkin_ws/src/ego-planner-swarm/src/planner/drone_detect/include/**",
+                "/home/fractal/catkin_ws/src/ego-planner-swarm/src/planner/plan_manage/include/**",
+                "/home/fractal/catkin_ws/src/FAST_LIO/include/**",
+                "/home/fractal/IPC_ws/src/IPC/IPC/include/**",
+                "/home/fractal/livox_ws/src/livox_laser_simulation/include/**",
+                "/home/fractal/IPC_ws/src/IPC/mars_uav_sim/uav_simulator/local_sensing/include/**",
+                "/home/fractal/IPC_ws/src/IPC/mars_uav_sim/uav_simulator/map_generator/include/**",
+                "/home/fractal/IPC_ws/src/IPC/mars_uav_sim/uav_simulator/mockamap/include/**",
+                "/home/fractal/IPC_ws/src/IPC/mars_uav_sim/uav_simulator/Utils/multi_map_server/include/**",
+                "/home/fractal/catkin_ws/src/ego-planner-swarm/src/planner/path_searching/include/**",
+                "/home/fractal/IPC_ws/src/IPC/mars_uav_sim/perfect_drone_sim/include/**",
+                "/home/fractal/catkin_ws/src/ego-planner-swarm/src/planner/plan_env/include/**",
+                "/home/fractal/IPC_ws/src/IPC/mars_uav_sim/uav_simulator/Utils/pose_utils/include/**",
+                "/home/fractal/IPC_ws/src/IPC/mars_uav_sim/mars_quadrotor_msgs/include/**",
+                "/home/fractal/catkin_ws/src/ego-planner-swarm/src/uav_simulator/so3_control/include/**",
+                "/home/fractal/IPC_ws/src/IPC/mars_uav_sim/uav_simulator/so3_controller/include/**",
+                "/home/fractal/IPC_ws/src/IPC/mars_uav_sim/uav_simulator/so3_quadrotor/include/**",
+                "/home/fractal/catkin_ws/src/ego-planner-swarm/src/uav_simulator/so3_quadrotor_simulator/include/**",
+                "/home/fractal/catkin_ws/src/ego-planner-swarm/src/planner/traj_utils/include/**",
+                "/home/fractal/IPC_ws/src/IPC/mars_uav_sim/uav_simulator/Utils/uav_utils/include/**",
+                "/usr/include/**",
+                "/usr/local/include/osqp",
+                "/home/fractal/IPC_ws/src/IPC/IPC/include"
+            ],
+            "name": "ROS",
+            "intelliSenseMode": "gcc-x64",
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "gnu11",
+            "cppStandard": "c++14"
+        }
+    ],
+    "version": 4
+}

@@ -1,51 +1,54 @@
 #----------------- MPC param -----------------#
-simulation:    true
-perfect_simu:  false
-frequency:     100.0
-ctrl_delay:    0.0
-sfc_dis:       0.3
+simulation:    false    # 是否在仿真模式下运行
+perfect_simu:  false   # 是否为完美仿真，无模型误差和外部扰动
+frequency:     100.0   # 控制频率（Hz）
+ctrl_delay:    0.02     # 控制延迟时间（秒）
+sfc_dis:       0.3     # 安全飞行走廊（SFC）的距离参数
 
-thrust_limit:  0.4
-hover_esti:    false
-hover_perc:    0.7
 
-yaw_ctrl_flag: true
-yaw_gain:      0.5
+thrust_limit:  0.9  # 推力限制，避免超出最大推力
+hover_esti:    true    # 是否估计悬停推力
+hover_perc:    0.7    # 估计的悬停推力百分比
 
-goal_x:        0.0
-goal_y:        0.0
-goal_z:        1.0
+yaw_ctrl_flag: false    # 是否启用偏航控制
+yaw_gain:      0.6     # 偏航控制增益
+
+goal_x:        0.0     # 目标位置 x 坐标
+goal_y:        0.0     # 目标位置 y 坐标
+goal_z:        1.0     # 目标位置 z 坐标
 
 astar:
-  resolution:  0.1
-  map_x_size:  20.0
-  map_y_size:  20.0
-  map_z_size:  3.0
-  expand_dyn:  0.5
-  expand_fix:  0.3
+  resolution:  0.2     # A*算法的分辨率
+  map_x_size:  20.0    # 地图的x尺寸
+  map_y_size:  20.0    # 地图的y尺寸
+  map_z_size:  20.0     # 地图的z尺寸
+  expand_dyn:  0.5     # 动态障碍物扩张大小
+  expand_fix:  0.4     # 固定障碍物扩张大小
 
 fsm:
-  ref_dis:     6
-  path_dis:    0.05
+  ref_dis:     5      # 路径规划中参考点的距离
+  path_dis:    0.05    # 路径规划中的路径点间隔
 
 mpc:
-  horizon:     15
-  step:        0.1
-  # ctrl_delay:  0   # n step
+  horizon:     15      # MPC的预测范围（时间步数）
+  step:        0.1     # MPC的时间步长（秒）
+  # ctrl_delay:  0     # 控制延迟，已在上面定义
+  
+ # MPC权重参数
+  R_p:         1000.0  # 位置的权重
+  R_v:         0.0     # 速度的权重
+  R_a:         0.0     # 加速度的权重
+  R_u:         0.0     # 控制输入的权重
+  R_u_con:     0.2     # 控制输入连续性的权重
+  R_pN:        2000.0  # 终端位置的权重
+  R_vN:        200.0  # 终端速度的权重
+  R_aN:        1000.0  # 终端加速度的权重
 
-  R_p:         1000.0
-  R_v:         0.0
-  R_a:         0.0
-  R_u:         0.0
-  R_u_con:     0.2
-  R_pN:        2000.0
-  R_vN:        1000.0
-  R_aN:        1000.0
+  D_x:         0.0     # x轴阻尼
+  D_y:         0.0     # y轴阻尼
+  D_z:         0.0     # z轴阻尼
 
-  D_x:         0.0
-  D_y:         0.0
-  D_z:         0.0
-
+# 速度、加速度、控制输入的限制
   vx_min:     -10.0
   vy_min:     -10.0
   vz_min:     -10.0
@@ -60,9 +63,10 @@ mpc:
   ay_max:      20.0
   az_max:      20.0
 
-  ux_min:     -50.0
-  uy_min:     -50.0
-  uz_min:     -50.0
-  ux_max:      50.0
-  uy_max:      50.0
-  uz_max:      50.0
+  ux_min:     -100.0
+  uy_min:     -100.0
+  uz_min:     -100.0
+  ux_max:      100.0
+  uy_max:      100.0
+  uz_max:      100.0
+

@@ -1,0 +1,8 @@
+prefix=/home/fractal/IPC_ws/src/IPC/build/devel
+
+Name: ipc
+Description: Description of ipc
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

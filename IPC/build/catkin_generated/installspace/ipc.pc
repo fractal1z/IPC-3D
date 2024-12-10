@@ -1,0 +1,8 @@
+prefix=/usr/local
+
+Name: ipc
+Description: Description of ipc
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
