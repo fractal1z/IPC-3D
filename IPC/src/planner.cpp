@@ -241,7 +241,7 @@ void PlannerClass::GenerateAPolytope(Eigen::Vector3d p1, Eigen::Vector3d p2, Eig
     planes.resize(0, 4);// 初始化planes矩阵，用于存储多面体的平面方程
     ros::Time start_t = ros::Time::now();
     // 定义包围盒的最大和最小点
-    Eigen::Vector3d box_max(10, 10, 3), box_min(-10, -10, -0.5);
+    Eigen::Vector3d box_max(10, 10, 10), box_min(-10, -10, -10);
     // 初始化用于定义多面体边界的矩阵
     Eigen::Matrix<double, 6, 4> bd;// 设置边界平面的法向量和常数项，构建一个围绕点p1的立方体
     bd.setZero();
@@ -255,18 +255,18 @@ void PlannerClass::GenerateAPolytope(Eigen::Vector3d p1, Eigen::Vector3d p2, Eig
     bd(1, 3) =  p1.x()+box_min.x();
     bd(2, 3) = -p1.y()-box_max.y();
     bd(3, 3) =  p1.y()+box_min.y();
-    bd(4, 3) = -box_max.z();
-    bd(5, 3) = +box_min.z();
+    bd(4, 3) = -p1.z()-box_max.z();
+    bd(5, 3) =  p1.z()+box_min.z();
 
     Polytope p;// 初始化多面体对象
     if (local_pc_.empty()) { // 障碍物点云为空，直接返回一个方块
         planes.resize(6, 4); // Ax + By + Cz + D = 0
         planes.row(0) <<  1,  0,  0, -p1.x()-box_max.x();
         planes.row(1) <<  0,  1,  0, -p1.y()-box_max.y();
-        planes.row(2) <<  0,  0,  1, -box_max.z();
+        planes.row(2) <<  0,  0,  1, -p1.z()-box_max.z();
         planes.row(3) << -1,  0,  0,  p1.x()+box_min.x();
         planes.row(4) <<  0, -1,  0,  p1.y()+box_min.y();
-        planes.row(5) <<  0,  0, -1,  box_min.z();
+        planes.row(5) <<  0,  0, -1,  p1.z()+box_min.z();
         return ; 
     }
      // 将本地点云数据转换为Eigen矩阵格式

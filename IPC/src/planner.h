@@ -65,7 +65,7 @@ public:
         nh.param("/ipc_node/astar/map_z_size", map_size.z(), 5.0);
         nh.param("/ipc_node/astar/expand_dyn", expand_dyn_, 0.25);
         nh.param("/ipc_node/astar/expand_fix", expand_fix_, 0.25);
-        map_low << -map_size.x()/2.0, -map_size.y()/2.0, map_size.z()/2.0;
+        map_low << -map_size.x()/2.0, -map_size.y()/2.0, -map_size.z()/2.0;
         map_upp <<  map_size.x()/2.0,  map_size.y()/2.0, map_size.z()/2.0;
         map_upp_ = map_upp;
         nh.param("/ipc_node/fsm/ref_dis", ref_dis_, 1);
