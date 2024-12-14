@@ -1,9 +1,17 @@
 #----------------- MPC param -----------------#
+<<<<<<< HEAD
 simulation:    false    # 是否在仿真模式下运行
 perfect_simu:  false   # 是否为完美仿真，无模型误差和外部扰动
 frequency:     100.0   # 控制频率（Hz）
 ctrl_delay:    0.02     # 控制延迟时间（秒）
 sfc_dis:       0.3     # 安全飞行走廊（SFC）的距离参数
+=======
+simulation:    false
+perfect_simu:  false
+frequency:     100.0
+ctrl_delay:    0.0
+sfc_dis:       0.3
+>>>>>>> 0f959ca7995e71a1fcc4942bd4a86869ab6ee975
 
 
 thrust_limit:  0.9  # 推力限制，避免超出最大推力
