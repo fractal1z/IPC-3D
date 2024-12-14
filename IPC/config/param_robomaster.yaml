@@ -18,16 +18,16 @@ goal_y:        0.0     # 目标位置 y 坐标
 goal_z:        1.0     # 目标位置 z 坐标
 
 astar:
-  resolution:  0.5     # A*算法的分辨率
-  map_x_size:  12.0    # 地图的x尺寸
-  map_y_size:  12.0    # 地图的y尺寸
+  resolution:  0.3     # A*算法的分辨率
+  map_x_size:  20.0    # 地图的x尺寸
+  map_y_size:  20.0    # 地图的y尺寸
   map_z_size:  12.0     # 地图的z尺寸
   expand_dyn:  0.5     # 动态障碍物扩张大小
   expand_fix:  0.4     # 固定障碍物扩张大小
 
 fsm:
-  ref_dis:     5      # 路径规划中参考点的距离
-  path_dis:    0.1    # 路径规划中的路径点间隔
+  ref_dis:     5      # 路径规划中参考点的距离 mpc_goals，几个path_dis每步
+  path_dis:    0.1    # 路径规划中的路径点间隔 follow_path_
 
 mpc:
   horizon:     15      # MPC的预测范围（时间步数）

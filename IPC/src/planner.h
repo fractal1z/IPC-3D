@@ -140,7 +140,7 @@ private:
     // 定义AstarPublish函数，它接受节点向量、类型和标记的尺寸作为参数
     void AstarPublish(std::vector<Eigen::Vector3d>& nodes, uint8_t type, double scale) {
         visualization_msgs::Marker node_vis; 
-        node_vis.header.frame_id = "world";// 设置坐标系ID
+        node_vis.header.frame_id = "camera_init";// 设置坐标系ID
         node_vis.header.stamp = ros::Time::now();// 设置时间戳为当前时间
 
         if (type == 0) {
@@ -225,7 +225,7 @@ private:
     // 定义MPCPathPublish函数，接收一个包含路径点的向量作为参数
     void MPCPathPublish(std::vector<Eigen::Vector3d> &pt) {
         nav_msgs::Path msg;
-        msg.header.frame_id = "world";
+        msg.header.frame_id = "camera_init";
         msg.header.stamp = ros::Time::now();
          // 遍历所有路径点
         for (int i = 0; i < pt.size(); i++) {

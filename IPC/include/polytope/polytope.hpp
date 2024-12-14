@@ -193,7 +193,7 @@ public:
 
         vertexMarker.id = vertex_id++;
         vertexMarker.header.stamp = ros::Time::now();
-        vertexMarker.header.frame_id = "world";
+        vertexMarker.header.frame_id = "camera_init";
         vertexMarker.pose.orientation.w = 1.00;
         if (flag) vertexMarker.action = visualization_msgs::Marker::DELETEALL;
         else {
@@ -217,7 +217,7 @@ public:
 
         meshMarker.id = mesh_id++;
         meshMarker.header.stamp = ros::Time::now();
-        meshMarker.header.frame_id = "world";
+        meshMarker.header.frame_id = "camera_init";
         meshMarker.pose.orientation.w = 1.00;
         if (flag) meshMarker.action = visualization_msgs::Marker::DELETEALL;
         else {

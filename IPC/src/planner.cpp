@@ -43,7 +43,7 @@ void PlannerClass::TimerCallback(const ros::TimerEvent &)
                 }
             }
 
-            int goal_in_sfc = astar_index_;
+            int goal_in_sfc = astar_index_;// sfc中最后一个点
             // 根据当前位置与路径点的关系进行不同的处理
             // 此处代码用于计算最优路径以及设置MPC控制器的目标状态
             // 以下是复杂的路径跟随和MPC设置逻辑，包括生成安全飞行走廊（Safe Flight Corridor, SFC）、设置MPC的目标点等
@@ -222,7 +222,7 @@ void PlannerClass::TimerCallback(const ros::TimerEvent &)
     ComputeThrust(a_optimal);
     ConvertCommand(a_optimal, u_optimal);
     BodyrateCtrlPub(rate_, thrust_, ros::Time::now());
-    std::cout<<"\n"<<"rate"<<rate_<<"\n"<<"thrust"<<thrust_;
+    // std::cout<<"\n"<<"rate"<<rate_<<"\n"<<"thrust"<<thrust_;
     timed_thrust_.push(std::pair<ros::Time, double>(ros::Time::now(), thrust_));
     while (timed_thrust_.size() > 100) {
         timed_thrust_.pop();
@@ -321,7 +321,7 @@ void PlannerClass::PathReplan(bool extend)
     }
     if (std::fabs(delta_z) > map_upp_.z()) {
         add_goal_flag = true;
-        // 调整终点使其不超出地图界限
+        // 调整终点使其不超出地图界限  z
         // 计算终点调整后的坐标，保持其在地图范围内
     
             end_p.z() = odom_p_.z() + (delta_z/std::fabs(delta_z)) * (map_upp_.z() - resolution_);
@@ -387,7 +387,7 @@ void PlannerClass::PathReplan(bool extend)
         local_astar_->FloydHandle(astar_path_, waypoints_);   // 对A*路径进行弗洛伊德路径平滑处理，并获取路径关键点
         // 若需要，将原始目标点加入到路径末尾
         // waypoints_.insert(waypoints_.begin(), odom_p_);
-        if (add_goal_flag && local_astar_->CheckPoint(goal_p_)) waypoints_.push_back(goal_p_);
+        if (add_goal_flag && local_astar_->CheckPoint(goal_p_)) waypoints_.push_back(goal_p_);//地图内可见点+终点
         AstarPublish(waypoints_, 1, 0.1);
         // 根据关键点生成最终的跟随路径
         for (int i = 0; i < waypoints_.size()-1; i++) {
@@ -406,7 +406,7 @@ void PlannerClass::PathReplan(bool extend)
     }
 
     geometry_msgs::PoseStamped msg;
-    msg.header.frame_id = "world";
+    msg.header.frame_id = "camera_init";
     msg.header.stamp = ros::Time::now();
     msg.pose.position.x = follow_path_.back().x();
     msg.pose.position.y = follow_path_.back().y();
@@ -492,7 +492,7 @@ void PlannerClass::LocalPcCallback(const sensor_msgs::PointCloud2ConstPtr& msg)
 
     // 将当前点云数据加入队列中，并限制队列大小
     vec_cloud_.push_back(cloud);
-    if (vec_cloud_.size() > 10) vec_cloud_.pop_front();
+    if (vec_cloud_.size() > 20) vec_cloud_.pop_front();
     // 将所有点云数据合并为一个点云
     static_cloud_.reset(new pcl::PointCloud<pcl::PointXYZ>());
     for (int i = 0; i < vec_cloud_.size(); i++) *static_cloud_ += vec_cloud_[i];

@@ -19,5 +19,5 @@
         <rosparam command="load" file="$(find ipc)/config/param_robomaster.yaml"/>
 
     </node>
-    <node name="ipc" pkg="rviz" type="rviz" args="-d $(find ipc)/config/env_real.rviz"/>
+    <node name="ipc" pkg="rviz" type="rviz" args="-d $(find ipc)/config/env_robomaster.rviz"/>
 </launch>

@@ -52,7 +52,7 @@ class LineSegment {
 	int line_cnt = 0;
 	/* Publish point */
 	visualization_msgs::Marker point;
-	point.header.frame_id = "world";
+	point.header.frame_id = "camera_init";
 	point.header.stamp = ros::Time::now();
 	point.ns = ns.c_str();
 	point.id = point_id++;
@@ -83,7 +83,7 @@ class LineSegment {
 
 // publish cylinder
 	visualization_msgs::Marker line_list;
-	line_list.header.frame_id = "world";
+	line_list.header.frame_id = "camera_init";
 	line_list.header.stamp = ros::Time::now();
 	line_list.ns = ns + "line";
 	line_list.id = line_cnt++;

@@ -213,7 +213,7 @@ class Ellipsoid {
 	int id = 0;
 	mkr.id = id++;
 	mkr.type = visualization_msgs::Marker::SPHERE;
-	mkr.header.frame_id = "world";
+	mkr.header.frame_id = "camera_init";
 	mkr.header.stamp = ros::Time::now();
 	mkr.ns = "ellp";
 	mkr.id = id++;
