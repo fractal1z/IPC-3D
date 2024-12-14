@@ -50,6 +50,7 @@ target_link_libraries(ipc_node
   -ldw
   tbb
   OsqpEigen::OsqpEigen
+  fmt::fmt
 )
 
 add_executable(fast_avoid
