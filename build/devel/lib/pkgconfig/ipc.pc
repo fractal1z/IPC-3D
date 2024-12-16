@@ -1,4 +1,4 @@
-prefix=/home/fractal/IPC_ws/src/IPC/build/devel
+prefix=/home/fractal/IntelligentUAVChampionshipBase/flm_dev/src/IPC/build/devel
 
 Name: ipc
 Description: Description of ipc

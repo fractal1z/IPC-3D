@@ -68,7 +68,7 @@ set(ipc_CONFIG_INCLUDED TRUE)
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
   set(ipc_SOURCE_PREFIX /home/fractal/IPC_ws/src/IPC/IPC)
-  set(ipc_DEVEL_PREFIX /home/fractal/IPC_ws/src/IPC/build/devel)
+  set(ipc_DEVEL_PREFIX /home/fractal/IntelligentUAVChampionshipBase/flm_dev/src/IPC/build/devel)
   set(ipc_INSTALL_PREFIX "")
   set(ipc_PREFIX ${ipc_DEVEL_PREFIX})
 else()
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /usr/local/lib;/home/fractal/catkin_ws/devel/lib;/home/fractal/livox_ws/devel/lib;/home/fractal/livox_ros_driver2/devel/lib;/opt/ros/noetic/lib)
+    foreach(path /usr/local/lib;/home/fractal/IntelligentUAVChampionshipBase/flm_dev/devel/lib;/home/fractal/catkin_ws/devel/lib;/home/fractal/livox_ws/devel/lib;/home/fractal/livox_ros_driver2/devel/lib;/opt/ros/noetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

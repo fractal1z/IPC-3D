@@ -44,7 +44,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/fractal/IPC_ws/src/IPC/build/gtest/googlemock/cmake_install.cmake")
+  include("/home/fractal/IntelligentUAVChampionshipBase/flm_dev/src/IPC/build/gtest/googlemock/cmake_install.cmake")
 
 endif()
 

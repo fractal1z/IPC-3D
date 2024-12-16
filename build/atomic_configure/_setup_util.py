@@ -268,7 +268,7 @@ if __name__ == '__main__':
 
         if not args.local:
             # environment at generation time
-            CMAKE_PREFIX_PATH = r'/home/fractal/catkin_ws/devel;/home/fractal/livox_ws/devel;/home/fractal/livox_ros_driver2/devel;/opt/ros/noetic'.split(';')
+            CMAKE_PREFIX_PATH = r'/home/fractal/IntelligentUAVChampionshipBase/flm_dev/devel;/home/fractal/catkin_ws/devel;/home/fractal/livox_ws/devel;/home/fractal/livox_ros_driver2/devel;/opt/ros/noetic'.split(';')
         else:
             # don't consider any other prefix path than this one
             CMAKE_PREFIX_PATH = []

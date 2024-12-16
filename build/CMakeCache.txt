@@ -797,7 +797,7 @@ ipc_IS_TOP_LEVEL:STATIC=ON
 ipc_SOURCE_DIR:STATIC=/home/fractal/IPC_ws/src/IPC/IPC
 
 //Path to a library.
-lib:FILEPATH=/opt/ros/noetic/lib/libxmlrpcpp.so
+lib:FILEPATH=/opt/ros/noetic/lib/librosfmt9.so
 
 //The directory containing a CMake configuration file for libmavconn.
 libmavconn_DIR:PATH=/opt/ros/noetic/share/libmavconn/cmake
@@ -860,7 +860,7 @@ pkgcfg_lib_PC_USB_10_usb-1.0:FILEPATH=/usr/lib/x86_64-linux-gnu/libusb-1.0.so
 pluginlib_DIR:PATH=/opt/ros/noetic/share/pluginlib/cmake
 
 //The directory containing a CMake configuration file for quadrotor_msgs.
-quadrotor_msgs_DIR:PATH=quadrotor_msgs_DIR-NOTFOUND
+quadrotor_msgs_DIR:PATH=/home/fractal/IntelligentUAVChampionshipBase/flm_dev/devel/share/quadrotor_msgs/cmake
 
 //The directory containing a CMake configuration file for rosbag.
 rosbag_DIR:PATH=/opt/ros/noetic/share/rosbag/cmake
@@ -879,6 +879,9 @@ roscpp_serialization_DIR:PATH=/opt/ros/noetic/share/roscpp_serialization/cmake
 
 //The directory containing a CMake configuration file for roscpp_traits.
 roscpp_traits_DIR:PATH=/opt/ros/noetic/share/roscpp_traits/cmake
+
+//The directory containing a CMake configuration file for rosfmt.
+rosfmt_DIR:PATH=/opt/ros/noetic/share/rosfmt/cmake
 
 //The directory containing a CMake configuration file for rosgraph.
 rosgraph_DIR:PATH=/opt/ros/noetic/share/rosgraph/cmake
